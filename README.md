@@ -1,4 +1,4 @@
-# Capstone: Bash Scripting Suite for System Maintenance (v1.0.0)
+# Capstone: Bash Scripting Suite for System Maintenance (vS)
 
 A complete, ready-to-submit project implementing the **Bash Scripting Suite** assignment:
 
