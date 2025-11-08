@@ -29,13 +29,9 @@ This repo maps 1:1 to the assignment's day-wise breakdown (Design → Scripts �
 
 ## Quick Start
 ```bash
-git clone <your-repo-url>.git
-cd <repo>
 cp config.env.example config.env
-# Edit config.env as needed; optionally edit exclude.example.txt and set BACKUP_EXCLUDES_FILE
 chmod +x scripts/*.sh
 
-# Recommended (to allow update/log reads where needed):
 sudo -E bash scripts/menu.sh
 ```
 
@@ -84,59 +80,6 @@ bash scripts/log_monitor.sh
 bash scripts/log_monitor.sh --follow
 ```
 
-## Cron examples
-Edit with `crontab -e`:
-```
-# Nightly backup at 2:05
-5 2 * * *  SUITE_LOG="$HOME/suite.log" BACKUP_DEST="/mnt/backup" bash /path/to/scripts/backup.sh
-
-# Weekly updates Sunday 3:15
-15 3 * * 0 SUITE_LOG="$HOME/suite.log" bash /path/to/scripts/updates.sh
-
-# Log scan every 6 hours
-0 */6 * * * SUITE_LOG="$HOME/suite.log" bash /path/to/scripts/log_monitor.sh
-```
-
-## Notes
-- Review/adjust `sudo` usage per your environment.
-- Ensure `BACKUP_DEST` exists and is writable/mounted.
-- For distros without `/var/log/auth.log`, the monitor falls back to `journalctl`.
-
-## License
-MIT © 2025-11-05
 
 
-## Screenshots / Sample Output
 
-### Menu
-```
-==== Bash Maintenance Suite ====
-Repo: capstone-bash-scripting-suite
-Log: ./suite.log
-
-1) Backup now
-2) Update & clean system
-3) Scan logs & system
-4) Watch system (follow mode)
-5) Show suite log (last 200 lines)
-6) Exit
-```
-
-### Dry-run Backup
-```
-$ bash scripts/backup.sh --dry-run
-[2025-11-05 10:15:09] [INFO] Starting backup to /tmp/backups/backup-20251105-101509
-[2025-11-05 10:15:09] [INFO] Backing up /home/user/Documents -> /tmp/backups/backup-20251105-101509/Documents (dry-run=true)
-[2025-11-05 10:15:12] [INFO] Backing up /home/user/Pictures -> /tmp/backups/backup-20251105-101509/Pictures (dry-run=true)
-[2025-11-05 10:15:12] [INFO] Backup routine finished.
-```
-
-### Log Monitor (scan)
-```
-$ bash scripts/log_monitor.sh
-[2025-11-05 10:18:21] [INFO] Checking disk usage...
-[2025-11-05 10:18:21] [WARN] High disk usage: 92% on /
-[2025-11-05 10:18:21] [INFO] Scanning for failed SSH logins (last 24h)...
-[2025-11-05 10:18:21] [INFO] Listing top 5 processes by CPU...
-[2025-11-05 10:18:21] [INFO] CPU:  1234     1 /usr/bin/python3 ...  1.2  35.1
-```
