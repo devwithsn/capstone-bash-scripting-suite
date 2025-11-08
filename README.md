@@ -8,7 +8,6 @@ A complete, ready-to-submit project implementing the **Bash Scripting Suite** as
 - Integrated **Menu** to run all tasks
 - Centralized **config**, **error handling**, and **logging**
 
-This repo maps 1:1 to the assignment's day-wise breakdown (Design → Scripts → Menu → Tests).
 
 ## Project Structure
 ```
