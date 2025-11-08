@@ -1,4 +1,5 @@
 suite.log
+*.log
 config.env
 .DS_Store
 Thumbs.db
