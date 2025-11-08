@@ -1,5 +1,12 @@
+cat > exclude.example.txt << 'EOF'
 *.o
 *.tmp
+*.log
 node_modules/
 .cache/
 .DS_Store
+EOF
+
+git add exclude.example.txt
+git commit -m "Add default backup excludes"
+git push
