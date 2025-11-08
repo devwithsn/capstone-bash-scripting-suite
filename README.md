@@ -14,11 +14,9 @@ This repo maps 1:1 to the assignment's day-wise breakdown (Design → Scripts �
 ```
 .
 ├── README.md
-├── LICENSE
 ├── .gitignore
 ├── config.env.example
-├── exclude.example.txt
-├── suite.log                # created at runtime
+├── exclude.example.txt       
 └── scripts/
     ├── backup.sh
     ├── log_monitor.sh
