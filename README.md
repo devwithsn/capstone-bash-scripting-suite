@@ -31,7 +31,6 @@ This repo maps 1:1 to the assignment's day-wise breakdown (Design → Scripts �
 ```bash
 cp config.env.example config.env
 chmod +x scripts/*.sh
-
 sudo -E bash scripts/menu.sh
 ```
 
@@ -61,25 +60,3 @@ See `config.env.example` for all variables with safe defaults. Key ones:
 - `WATCH_INTERVAL` — seconds between checks in watch mode (default: 10)
 - `UPDATES_YES` — attempt non-interactive updates where supported (default: true)
 - `SUITE_LOG` — path to suite log (default: `./suite.log`)
-
-## Demo Commands
-```bash
-# Dry-run backup (no changes) for demo:
-bash scripts/backup.sh --dry-run
-
-# Actual backup:
-bash scripts/backup.sh
-
-# System update & cleanup (may prompt for sudo):
-bash scripts/updates.sh
-
-# One-shot log scan:
-bash scripts/log_monitor.sh
-
-# Watch mode (Ctrl+C to exit):
-bash scripts/log_monitor.sh --follow
-```
-
-
-
-
